@@ -1,8 +1,15 @@
 package com.aerweka.playground.services;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
 import com.aerweka.playground.interfaces.MessengerService;
 
-public class MessengerServiceImpl implements MessengerService{
+public class MessengerServiceImpl extends UnicastRemoteObject implements MessengerService{
+    public MessengerServiceImpl() throws RemoteException {
+        super();
+    }
+
     @Override
     public String sendMessage(String message) {
         // RemoteException is not defined because it is reseved for RMI to raise communications error to the client. Not for the implementation error
